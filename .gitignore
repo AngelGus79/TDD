@@ -2,4 +2,5 @@ db.sqlite3
 __pycache__
 *.pyc
 .gitignore~
-geckodriver.loghome.html~
+geckodriver.log
+home.html~
