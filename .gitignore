@@ -11,3 +11,4 @@ list.html~
 .#geckodriver.log
 ..gitignore.swp
 geckodriver.log~
+lists/urls.py~

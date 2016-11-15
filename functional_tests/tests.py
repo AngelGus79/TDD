@@ -48,7 +48,6 @@ class NewVisitorTest(LiveServerTestCase):
         import time
         time.sleep(1)
         edith_list_url = self.browser.current_url
-       
         self.assertRegex(edith_list_url, '/lists/.+')
         self.check_for_row_in_list_table('1: Buy peacock feathers')
 
@@ -66,7 +65,7 @@ class NewVisitorTest(LiveServerTestCase):
         # Now a new user, Francis, comes along to the site.
 
         ## We use a new browser session to make sure that no information
-        ## of Edith's is coming through from cookies etc  
+        ## of Edith's is coming through from cookies etc
         self.browser.quit()
         self.browser = webdriver.Firefox()
 
@@ -87,11 +86,10 @@ class NewVisitorTest(LiveServerTestCase):
         francis_list_url = self.browser.current_url
         self.assertRegex(francis_list_url, '/lists/.+')
         self.assertNotEqual(francis_list_url, edith_list_url)
-        
+
         # Again, there is no trace of Edith's list
         page_text = self.browser.find_element_by_tag_name('body').text
         self.assertNotIn('Buy peacock feathers', page_text)
         self.assertIn('Buy milk', page_text)
 
         # Satisfied, they both go back to sleep
-
