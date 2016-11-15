@@ -4,5 +4,6 @@ __pycache__
 .gitignore~
 geckodriver.log
 home.html~
-#list.html#
+lists/templates/#list.html#
 .#list.html
+list.html~
