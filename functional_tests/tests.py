@@ -24,6 +24,7 @@ class NewVisitorTest(LiveServerTestCase):
         # Edith has heard about a cool new online to-do app. She goes
         # to check out its homepage
         self.browser.get(self.live_server_url)
+
         # She notices the page title and header mention to-do lists
         self.assertIn('To-Do', self.browser.title)
         header_text = self.browser.find_element_by_tag_name('h1').text
@@ -40,11 +41,15 @@ class NewVisitorTest(LiveServerTestCase):
         # is tying fly-fishing lures)
         inputbox.send_keys('Buy peacock feathers')
 
-        # When she hits enter, the page updates, and now the page lists
-        # "1: Buy peacock feathers" as an item in a to-do list table
+        # When she hits enter, she is taken to a new URL,
+        # and now the page lists "1: Buy peacock feathers" as an item in a
+        # to-do list table
         inputbox.send_keys(Keys.ENTER)
+        import time
+        time.sleep(1)
         edith_list_url = self.browser.current_url
-        self.assertRegex(edith_list_url, '/lists/.+')  
+       
+        self.assertRegex(edith_list_url, '/lists/.+')
         self.check_for_row_in_list_table('1: Buy peacock feathers')
 
         # There is still a text box inviting her to add another item. She
@@ -77,7 +82,7 @@ class NewVisitorTest(LiveServerTestCase):
         inputbox = self.browser.find_element_by_id('id_new_item')
         inputbox.send_keys('Buy milk')
         inputbox.send_keys(Keys.ENTER)
-
+        time.sleep(1)
         # Francis gets his own unique URL
         francis_list_url = self.browser.current_url
         self.assertRegex(francis_list_url, '/lists/.+')

@@ -9,3 +9,5 @@ lists/templates/#list.html#
 list.html~
 #geckodriver.log#
 .#geckodriver.log
+..gitignore.swp
+geckodriver.log~
