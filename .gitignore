@@ -7,3 +7,5 @@ home.html~
 lists/templates/#list.html#
 .#list.html
 list.html~
+#geckodriver.log#
+.#geckodriver.log
