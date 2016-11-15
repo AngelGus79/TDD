@@ -12,3 +12,5 @@ list.html~
 ..gitignore.swp
 geckodriver.log~
 lists/urls.py~
+lists/templates/base.html~
+bootstrap.zip
