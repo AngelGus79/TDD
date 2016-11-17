@@ -1,0 +1,14 @@
+[Unit]
+Description=Gunicorn server for 192.168.0.14
+
+[Service]
+Restart=on-failure  
+User=angel  
+WorkingDirectory=/home/angel/sites/superlists/source/  
+ExecStart=/home/angel/sites/superlists/virtualenv/bin/gunicorn \
+    --bind unix:/tmp/superlists.socket \
+    superlists.wsgi:application  
+
+[Install]
+WantedBy=multi-user.target 
+
