@@ -14,3 +14,6 @@ geckodriver.log~
 lists/urls.py~
 lists/templates/base.html~
 bootstrap.zip
+.gitignore.save
+superlists/#settings.py#
+superlists/.#settings.py
