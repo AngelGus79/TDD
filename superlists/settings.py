@@ -25,7 +25,7 @@ SECRET_KEY = 'yptvis==hq5k3kw8$q^=k1^$(-&su2)_)o$hnu#su0#*nqgk#j'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '192.168.0.14']
+ALLOWED_HOSTS = ['127.0.0.1','192.168.0.14']
 
 
 # Application definition

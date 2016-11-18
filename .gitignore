@@ -21,3 +21,4 @@ functional_tests/test_layout_and_styling.py~
 functional_tests/test_list_item_validation.py~
 functional_tests/test_simple_list_creation.py~
 
+lists/tests/test_models.py~
