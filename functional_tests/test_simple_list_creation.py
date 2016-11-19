@@ -29,7 +29,10 @@ class NewVisitorTest(FunctionalTest):
         # When she hits enter, she is taken to a new URL,
         # and now the page lists "1: Buy peacock feathers" as an item in a
         # to-do list table
+        
         inputbox.send_keys(Keys.ENTER)
+        import time
+        time.sleep(3)
         edith_list_url = self.browser.current_url
         self.assertRegex(edith_list_url, '/lists/.+')
         self.check_for_row_in_list_table('1: Buy peacock feathers')
@@ -64,7 +67,7 @@ class NewVisitorTest(FunctionalTest):
         inputbox = self.get_item_input_box()
         inputbox.send_keys('Buy milk')
         inputbox.send_keys(Keys.ENTER)
-
+        time.sleep(3)
         # Francis gets his own unique URL
         francis_list_url = self.browser.current_url
         self.assertRegex(francis_list_url, '/lists/.+')
@@ -74,3 +77,5 @@ class NewVisitorTest(FunctionalTest):
         page_text = self.browser.find_element_by_tag_name('body').text
         self.assertNotIn('Buy peacock feathers', page_text)
         self.assertIn('Buy milk', page_text)
+
+        # Satisfied, they both go back to sleep
