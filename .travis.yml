@@ -15,4 +15,4 @@ install:
    - pip install Django==1.8.16
 # command to run tests
 script:
-  - python mange.py test lists
+  - python manage.py test lists
