@@ -8,10 +8,28 @@ python:
   # maintainers to fix their pypy-dev package.
   # - "pypy"
 # command to install dependencies
+addons:
+  apt:
+    packages:
+      - libappindicator1
+      - fonts-liberation
+      - chromium-browser
+      - chromium-chromedriver
+      
+before_install:
+  - export CHROME_BIN=chromium-browser
+  - export DISPLAY=:99.0
+  - wget http://chromedriver.storage.googleapis.com/2.21/chromedriver_linux64.zip
+  - unzip chromedriver_linux64.zip
+  - sudo chmod u+x chromedriver
+  - sudo mv chromedriver /usr/bin/
+  - sh -e /etc/init.d/xvfb start
+  
 install:
-   - pip install flake8
+   - pip install flake8 selenium
    - pip install -r requirements.txt
 # command to run tests
+
 script:
-  - python manage.py test lists
+  - python manage.py test
   - flake8
