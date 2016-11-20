@@ -29,7 +29,7 @@ class NewVisitorTest(FunctionalTest):
         # When she hits enter, she is taken to a new URL,
         # and now the page lists "1: Buy peacock feathers" as an item in a
         # to-do list table
-        
+
         inputbox.send_keys(Keys.ENTER)
         import time
         time.sleep(3)
@@ -45,13 +45,15 @@ class NewVisitorTest(FunctionalTest):
         inputbox.send_keys(Keys.ENTER)
 
         # The page updates again, and now shows both items on her list
-        self.check_for_row_in_list_table('2: Use peacock feathers to make a fly')
-        self.check_for_row_in_list_table('1: Buy peacock feathers')
+        self.check_for_row_in_list_table(
+            '2: Use peacock feathers to make a fly')
+        self.check_for_row_in_list_table(
+            '1: Buy peacock feathers')
 
         # Now a new user, Francis, comes along to the site.
 
-        ## We use a new browser session to make sure that no information
-        ## of Edith's is coming through from cookies etc
+        # We use a new browser session to make sure that no information
+        # of Edith's is coming through from cookies etc
         self.browser.quit()
         self.browser = webdriver.Firefox()
 
@@ -79,4 +81,3 @@ class NewVisitorTest(FunctionalTest):
         self.assertIn('Buy milk', page_text)
 
         # Satisfied, they both go back to sleep
-        
