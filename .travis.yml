@@ -15,6 +15,4 @@ install:
    - pip install Django==1.8.16
 # command to run tests
 script:
-  - python -m compileall ./
-  - flake8 --max-line-length=160
-- python -m doctest ./funciones.py
+  - python mange.py test lists
