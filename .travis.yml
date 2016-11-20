@@ -1,0 +1,20 @@
+language: python
+python:
+  - "3.5"
+  # - "3.2"
+  # - "3.3"
+  # - "3.4"
+  # does not have headers provided, please ask https://launchpad.net/~pypy/+archive/ppa
+  # maintainers to fix their pypy-dev package.
+  # - "pypy"
+# command to install dependencies
+install:
+  #- pip install flake8
+  #- pip install autopep8
+  #- pip install -r requirements.txt
+   - pip install Django==1.8.16
+# command to run tests
+script:
+  - python -m compileall ./
+  - flake8 --max-line-length=160
+- python -m doctest ./funciones.py
